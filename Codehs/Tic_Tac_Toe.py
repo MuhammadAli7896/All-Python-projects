@@ -122,9 +122,26 @@ def print_board():
     print(f"{four} | {five} | {six} ")
     print(f"--|---|---")
     print(f"{seven} | {eight} | {nine} ") 
-    
+
+def sum(a, b, c):
+    return a + b + c
+
 xstate = [0,0,0,0,0,0,0,0,0]
 zstate = [0,0,0,0,0,0,0,0,0]
+
+def check_wins():
+    win = [[1,2,3],[1,4,7],[2,5,8],[3,6,9],[4,5,6],[7,8,9],[1,5,9],[3,5,7]]
+    for item in win:
+        if xstate[item[0]-1] == True and xstate[item[1]-1] == True and xstate[item[2]-1] == True:
+            print("X won the match.")
+            return 1
+        elif zstate[item[0]-1] == True and zstate[item[1]-1] == True and zstate[item[2]-1] == True:
+            print("O won the match.")
+            return 0
+        else:
+            return -1
+    
+
 turn = 0
 print_board()
 while True:
@@ -133,22 +150,30 @@ while True:
     if turn % 2 == 0:
         print("It's 'X' turn.")
         X_turn = int(input("Enter a number (1-9): "))
-        turn += 1
-        if xstate[X_turn - 1] == 'O':
+        if zstate[X_turn - 1] == True or xstate[X_turn - 1] == True:
             print("Enter another value.")
             continue
         else:
             xstate[X_turn - 1] = True
             print_board()
+            turn += 1
+            who_win = check_wins()
+            if who_win != -1:
+                print("Match over.")
+                break
     elif turn %2 == 1:
         print("It's 'O' turn.")
         Z_turn = int(input("Enter a value (1-9): "))
-        turn += 1
-        if zstate[Z_turn - 1] == 'X':
+        if xstate[Z_turn - 1] == True or zstate[Z_turn - 1] == True:
             print("Enter another value.")
             continue
         else:
             zstate[Z_turn - 1] = True
             print_board()
+            turn += 1
+            who_win = check_wins()
+            if who_win != -1:
+                print("Match over.")
+                break
     else:
         continue
