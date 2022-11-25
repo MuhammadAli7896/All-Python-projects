@@ -66,7 +66,7 @@ def print_board():
     seven = f'{Fore.LIGHTRED_EX}X{Fore.RESET}' if xstate[6] else (f'{Fore.LIGHTGREEN_EX}O{Fore.RESET}' if zstate[6] else 7)
     eight = f'{Fore.LIGHTRED_EX}X{Fore.RESET}' if xstate[7] else (f'{Fore.LIGHTGREEN_EX}O{Fore.RESET}' if zstate[7] else 8)
     nine = f'{Fore.LIGHTRED_EX}X{Fore.RESET}' if xstate[8] else (f'{Fore.LIGHTGREEN_EX}O{Fore.RESET}' if zstate[8] else 9)
-    print(Fore.LIGHTCYAN_EX)
+    #print(Fore.LIGHTCYAN_EX)
     print(f"{one} | {two} | {three} ")
     print(f"--|---|---")
     print(f"{four} | {five} | {six} ")
@@ -84,13 +84,12 @@ def check_wins(xstate,zstate):
     win = [[1,2,3],[1,4,7],[2,5,8],[3,6,9],[4,5,6],[7,8,9],[1,5,9],[3,5,7]]
     for item in win:
         if xstate[item[0]-1] == True and xstate[item[1]-1] == True and xstate[item[2]-1] == True:
-            print("X won the match.")
+            print(f"{Back.LIGHTRED_EX}X won the match.{Back.RESET}")
             return 1
-        elif zstate[item[0]-1] == True and zstate[item[1]-1] == True and zstate[item[2]-1] == True:
-            print("O won the match.")
+        if zstate[item[0]-1] == True and zstate[item[1]-1] == True and zstate[item[2]-1] == True:
+            print(f"{Back.LIGHTGREEN_EX}O won the match.{Back.RESET}")
             return 0
-        else:
-            return -1
+    return -1
     
 
 turn = 0
@@ -110,7 +109,8 @@ while True:
             turn += 1
             who_win = check_wins(xstate,zstate)
             if who_win != -1:
-                print("Match over.")
+                print("")
+                print(f"{Back.LIGHTYELLOW_EX}Match over.{Back.RESET}")
                 break
     elif turn %2 == 1:
         print(f"{Fore.LIGHTGREEN_EX}It's 'O' turn.{Fore.RESET}")
@@ -124,7 +124,8 @@ while True:
             turn += 1
             who_win = check_wins(xstate,zstate)
             if who_win != -1:
-                print("Match over.")
+                print("")
+                print(f"{Back.LIGHTYELLOW_EX}Match over.{Back.RESET}")
                 break
     else:
         continue
