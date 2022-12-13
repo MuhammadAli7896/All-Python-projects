@@ -1,5 +1,6 @@
 n = int(input())
 s = set(map(int, input().split()))
+print(list(s))
 commands = int(input())
 for i in range (commands):
     t = input().split()
