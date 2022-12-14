@@ -1,13 +1,7 @@
-n = int(input())
-s = set(map(int, input().split()))
-print(list(s))
-commands = int(input())
-for i in range (commands):
-    t = input().split()
-    if 'remove' in t:
-        s.remove(int(t[-1]))
-    elif 'discard' in t:
-        s.discard(int(t[-1]))
-    elif 'pop' in t:
-        s.pop()
-print(sum(s))
+for i in range(1,int(input())+1):
+    for j in range(1,i+1):
+        print(j,end="")
+    for k in range(i-1,0,-1):
+        print(k,end="")
+    print()
+    
