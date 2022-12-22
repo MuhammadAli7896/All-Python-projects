@@ -1,6 +1,5 @@
 import random
 words = ["muhammad", "apple", "Pakistan", "America", "Korea", "Afghanistan", "Argentina", "Belgium", "Croatia", "Netherlands", "Slovakia", "Venezuela"]
-#words = ["muhammad", "apple"]
 secret_word = random.choice(words).lower()
 secret_word2 = secret_word
 dashes = "-" * len(secret_word)
