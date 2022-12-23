@@ -26,7 +26,7 @@ def get_guess():
             if guesses_left == 0:
                 break
             print(current_dashes_state)
-            print(f"{guesses_left} incorrect guesses left.")
+            print(f"{guesses_left} guesses left.")
             continue
         if guess in secret_word2 and guess.islower() and len(guess) ==1:
             print("That letter is in the secret word!")
@@ -34,10 +34,10 @@ def get_guess():
             current_dashes_state = update_dashes(secret_word2, current_dashes_state, guess)
             print(current_dashes_state)
             if current_dashes_state == secret_word2:
-                print(f"Congrats! You win.")
+                print("Congrats! You win.")
                 #break
                 break
-            print(f"{guesses_left} incorrect guesses left.")
+            print(f"{guesses_left} guesses left.")
             continue
     if current_dashes_state != secret_word2:
         print(f"You lose. The word was: {secret_word2}")
