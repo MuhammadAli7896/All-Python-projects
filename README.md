@@ -12,5 +12,5 @@ I started coding and solving Hackerrank challenges so how I continue learning mo
 
 I created some very primitive games as to improve and examine my coding skills.
 
-This repository inclueds Codehs important assignments, Hackerrank and Mosh challenges and some games etc.
+This repository inclueds Codehs important assignments, Hackerrank and other challenges and some games etc.
 
